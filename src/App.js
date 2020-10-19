@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Form from './components/Form';
 import ToDoList from './components/ToDoList';
@@ -6,7 +6,7 @@ import ToDoList from './components/ToDoList';
 const App = () => {
 
   const [inputText, setInputText] = useState('')
-  const [toDos, setToDos] = useState([])
+  const [toDosState, setToDos] = useState([])
 
   return (
     <div className="App">
@@ -16,10 +16,10 @@ const App = () => {
       <Form
         inputText={inputText}
         setInputText={setInputText}
-        toDos={toDos}
+        toDosState={toDosState}
         setToDos={setToDos}
       />
-      <ToDoList />
+      <ToDoList toDosState={toDosState} setToDos={setToDos} />
     </div>
   );
 }

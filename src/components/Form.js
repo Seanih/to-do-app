@@ -1,20 +1,19 @@
 import React from 'react'
 
-const Form = ({ inputText, setInputText, toDos, setToDos }) => {
+const Form = ({ inputText, setInputText, toDosState, setToDos }) => {
 
   const inputTextHandler = e => {
-    console.log(e.target.value)
     setInputText(e.target.value)
   };
 
   const submitToDoHandler = e => {
     e.preventDefault();
     setToDos([
-      ...toDos,
+      ...toDosState,
       {
-        text: inputText,
         completed: false,
-        id: Math.floor(Math.random() * 100)
+        id: Math.floor(Math.random() * 100),
+        text: inputText,
       }
     ])
     setInputText('')
